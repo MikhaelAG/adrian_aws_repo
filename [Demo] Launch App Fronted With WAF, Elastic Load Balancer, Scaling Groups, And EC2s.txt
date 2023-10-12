@@ -1,3 +1,6 @@
+Scope: In this demo, a client has a web application, komissarkeisha.com, that is fronted by an elastic load balancer (ALB), 2 auto scaling groups for the secure and unsecure versions of the app. The servers are in a private VPC subnets across three availability zones in the us-east region. The client wants to have protection from DDOS attacks, XSS and SQL-injection attacks. A WAF will be associated with the load balancer to prevent these attacks. A document is written below with instructions on implementing the solutions architecture for the web application.
+
+
 Summary
 
 Section I. AWS Console Login
@@ -10,7 +13,7 @@ Section VII. Create Application Load Balancer
 Section VIII. Create Auto Scaling Groups
 Section IX. Select Domain in Route 53
 Section X. Create WAF for App Domain
-Section XI. Test Display of App Domain wth WAF
+Section XI. Test Display of App Domain with WAF
 Section XII. Teardown
 
 
@@ -350,7 +353,7 @@ Section X. Create WAF for App Domain
 
 2. In "WAF & Shield", under "Getting started", select "Create web ACL".
 
-3. In Web ACL details, enter the name of WAF for the domain in "Name", e.g., "WAF_<domain_name>". Copy and paste Name for Description.
+3. In Web ACL details, enter the name of WAF for the domain in "Name", e.g., "WAF_komissarkeisha". Copy and paste Name for Description.
 
 4. In Resource type, select "Regional resources".
 
@@ -381,9 +384,9 @@ Section X. Create WAF for App Domain
 
 Section XI. Test Display of App Domain wtih WAF
 
-1. In a separate tab or window, enter the domain name in browser, e.g., "https://<domain_name>.com". The secured-443 app homepage should appear.
+1. In a separate tab or window, enter the domain name in browser, e.g., "https://<domain_name>". The secured-443 app homepage should appear.
 
-2. Repeat Step 1 for the unsecured-80 app homepage, e.g., "http://<domain_name>.com". The unsecured-80 app homepage should appear.
+2. Repeat Step 1 for the unsecured-80 app homepage, e.g., "http://<domain_name>.". The unsecured-80 app homepage should appear.
 
 
 Section XII. Teardown
