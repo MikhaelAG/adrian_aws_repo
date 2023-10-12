@@ -50,3 +50,39 @@ echo "<h1>Hello World from $(hostname -f) in AZ $EC2_AVAIL_ZONE </h1>" > /var/ww
 19g. Advanced details is left untouched.
 20. Review instance paramaters. Select "Launch Instance."
 21. Repeat 19 tru 20 for 3rd availability zone.
+______________________________________________________________________ __________________________________ 
+Setting Up Target Group(s) 
+1.Under EC2 category 
+2.Go To Target Group 
+3.Create Target Group  
+4.Select Target type Instances 
+5.Target group name enter a name easily found and remembered 6.VPC select the correct VPC that you named in the from before  7.Dont change the protocol version HTTP1 
+8. Create a Tag from for the Target group 
+______________________________________________________________________ __________________________________ 
+Setting Up Load Balancer(s) 
+Setting Up Load Balancer(s) 
+1. Under EC2 Category 
+2. Lefthand column scroll down to Load Balancing - Select Load  Balancers  
+3. In the top right select "Create load balancer" (Highlighted Orange) 
+4. "Load balancer types" - Select "Application Load Balancer" by  clicking on "create" at the bottom. 
+- Basic configuration 
+5. "Load balancer name" give your load balancer a name. 6. Make sure 'Internet-facing" is selected. (Listed under "Scheme") 7. Make sure "IPv4" is selected. (Listed under "IP address type") 
+- Network Mapping 
+8. VPC - Deselect the default VPC then select your created vpc from  the drop menu.
+- Security Groups 
+9. Click the drop down arrow - Select your created security group  (specifically created for the LB. Not the other..) 
+-Listerners and Routing 
+10. Protocol - HTTP  
+ Port - 80 
+11. Default action - Select created target group by clicking the drop  down arrow. 
+12. Click "Create load balancer" (Highlighted orange) at the bottom 
+______________________________________________________________________ __________________________________ 
+Teardown Order 
+1.Load Balances 
+2.EC2 Instances 
+3.VPC NAT Gateways 
+4.EC2 Network Interfaces 
+5.Target Groups 
+6.Elastic IPs 
+7.VPC
+
